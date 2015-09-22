@@ -13,7 +13,7 @@ int main()
 	Stack C("C");
 	
 	char jawab;
-	cout<<"Apakah Anda ingin menampilkan detail Stack?"<<endl;
+	cout<<"Apakah Anda ingin menampilkan detail Stack? Jika iya, maka masukkan y/Y"<<endl;
 	cin>>jawab;
 	
 	cout<<"Masukkan berapa disk untuk tumpukan?"<<endl;

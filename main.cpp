@@ -18,7 +18,7 @@ int main()
 	
 	cout<<"Masukkan berapa disk untuk tumpukan?"<<endl;
 	cin>>input;
-	if(cin.good())
+	if(cin.good() && input>0)
 	{
 		int i;
 		for(i=input;i>0;i--)
@@ -34,6 +34,10 @@ int main()
 			hanoi(input,&A, &B, &C, 0);
 		}
 		
+	}
+	else
+	{
+		cout<<"Data yang dimasukkan salah."<<endl;
 	}
 	return 0;
 }

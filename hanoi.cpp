@@ -2,9 +2,6 @@
 #include "stack.h"
 using namespace std;
 
-//Fungsi Hanoi rekursi.
-//Sumber: http://www.scribd.com/doc/34314249/Rekursif-Permainan-Menara-Hanoi-dengan-Pemrograman-C#scribd
-
 
 void printStackLagi(Stack* stack)
 {
@@ -12,6 +9,9 @@ void printStackLagi(Stack* stack)
 	stack->printStack();
 	cout<<endl;
 }
+
+//Fungsi Hanoi rekursi.
+//Sumber: http://www.scribd.com/doc/34314249/Rekursif-Permainan-Menara-Hanoi-dengan-Pemrograman-C#scribd
 
 void hanoi(int piringan, Stack* dari, Stack* bantu, Stack* ke, int detail)
 {

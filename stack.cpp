@@ -4,8 +4,14 @@
 
 using namespace std;
 
+Stack::Stack(string namaBaru)
+{
+	nama=namaBaru;
+	Head=NULL;
+}
+
 void Stack::push(int data){
-	LinkList* DataBaru =(LinkList*) malloc(sizeof(LinkList));
+	LinkedList* DataBaru =(LinkedList*) malloc(sizeof(LinkedList));
 	
 	DataBaru->data = data;
 	DataBaru->Next = Head;
@@ -13,8 +19,24 @@ void Stack::push(int data){
 }
  int Stack::pop(){
  	int data=Head->data;
- 	LinkList* Next = Head->Next;
+ 	LinkedList* Next = Head->Next;
  	free(Head);
  	Head=Next;
  	return data; 	
+ }
+
+ void Stack::printStack()
+ {
+	 if(Head!=NULL)
+	 {
+		printStack(Head);
+	 }
+ }
+ void Stack::printStack(LinkedList* Next)
+ {
+	 cout<< Next->data << endl;
+	 if(Next->Next!=NULL)
+	 {
+		 printStack(Next->Next);
+	 }
  }

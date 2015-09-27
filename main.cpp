@@ -7,7 +7,7 @@ using namespace std;
 
 int main()
 {
-	int input;
+	int input, langkah;
 	Stack A("A");
 	Stack B("B");
 	Stack C("C");
@@ -15,29 +15,36 @@ int main()
 	char jawab;
 	cout<<"Apakah Anda ingin menampilkan detail Stack? Jika iya, maka masukkan y/Y"<<endl;
 	cin>>jawab;
-	
-	cout<<"Masukkan berapa disk untuk tumpukan?"<<endl;
-	cin>>input;
-	if(cin.good() && input>0)
+	for(;;)
 	{
-		int i;
-		for(i=input;i>0;i--)
+	cin.clear();
+    cin.ignore();
+    fflush(stdin);
+	cout<<"Masukkan berapa disk untuk tumpukan? Minimum 3 tumpukan."<<endl;
+	cin>>input;
+		
+		if(cin.good() && input>2)
 		{
-			A.push(i);
-		}
-		if(jawab=='y' || jawab=='Y')
-		{
-			hanoi(input,&A, &B, &C, 1);	
+			int i;
+			for(i=input;i>0;i--)
+			{
+				A.push(i);
+			}
+			if(jawab=='y' || jawab=='Y')
+			{
+				langkah=hanoi(input,&A, &B, &C, 1);	
+			}
+			else
+			{
+				langkah=hanoi(input,&A, &B, &C, 0);
+			}
+			break;
 		}
 		else
 		{
-			hanoi(input,&A, &B, &C, 0);
+			cout<<"Data yang dimasukkan salah atau input kurang dari 3."<<endl<<"Silahkan coba lagi!!!"<<endl;
 		}
-		
-	}
-	else
-	{
-		cout<<"Data yang dimasukkan salah."<<endl;
-	}
+	}	
+	cout<< endl << "Total langkah yang dilakukan adalah "<<langkah<< " langkah."<<endl;
 	return 0;
 }

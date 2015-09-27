@@ -2,6 +2,7 @@
 #include "stack.h"
 using namespace std;
 
+int langkah=0;
 
 void printStackLagi(Stack* stack)
 {
@@ -13,13 +14,13 @@ void printStackLagi(Stack* stack)
 //Fungsi Hanoi rekursi.
 //Sumber: http://www.scribd.com/doc/34314249/Rekursif-Permainan-Menara-Hanoi-dengan-Pemrograman-C#scribd
 
-void hanoi(int piringan, Stack* dari, Stack* bantu, Stack* ke, int detail)
+int hanoi(int piringan, Stack* dari, Stack* bantu, Stack* ke, int detail)
 {
 	if (piringan>0)
 	{
 		hanoi (piringan-1, dari, ke, bantu,detail);
 		cout<<endl<<"Pindah "<< piringan << " ke "<< ke->nama<<endl;
-		
+		langkah=langkah+1;
 		ke->push(dari->pop());
 		
 		
@@ -58,5 +59,6 @@ void hanoi(int piringan, Stack* dari, Stack* bantu, Stack* ke, int detail)
 		
 		hanoi (piringan-1,bantu,dari,ke,detail);
 	}
+	return langkah;
 }
 
